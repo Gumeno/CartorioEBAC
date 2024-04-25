@@ -1,19 +1,20 @@
-#include <stdio.h> //biblioteca de comunicação com o usuário
-#include <stdlib.h> //biblioteca de alocação de espaço em memória
-#include <locale.h> //biblioteca de alocações de texto por região 
+#include <stdio.h>
+#include <stdio.h> //biblioteca de comunica??o com o usu?rio
+#include <stdlib.h> //biblioteca de aloca??o de espa?o em mem?ria
+#include <locale.h> //biblioteca de aloca??es de texto por regi?o 
 #include <string.h> //biblioteca responsavel por cuidar da string
 
-int registro() //Função resposavel por cadastrar usuários no sistema 
+int registro() //Fun??o resposavel por cadastrar usu?rios no sistema 
 {
-	//Inicio da criações de variáveis/strings
+	//Inicio da cria??es de vari?veis/strings
 	char arquivo[40];
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
-	//Final da criações de variáveis/strings
+	//Final da cria??es de vari?veis/strings
 	
-	printf("Digite o CPF a ser registrado:"); // Coletando infomações de usuário
+	printf("Digite o CPF a ser registrado:"); // Coletando infoma??es de usu?rio
 	scanf("%s", cpf); //%s refere-se a string
 	
 	strcpy(arquivo, cpf); //Responsavel por copia os valores das string
@@ -73,12 +74,12 @@ int consulta()
 	
 	if(file == NULL)
 	{
-		printf("Não foi possivel localizar esse CPF.\n");
+		printf("N?o foi possivel localizar esse CPF.\n");
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL)
 	{
-		printf("\nEssas são as infomações do usuário: ");
+		printf("\nEssas s?o as infoma??es do usu?rio: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -99,7 +100,7 @@ int deletar()
 	
 	if(file == NULL)
 	{
-		printf("Usuario não encontrado no sistema!\n");
+		printf("Usuario n?o encontrado no sistema!\n");
 		system("pause");
 		
 	}
@@ -110,7 +111,17 @@ int deletar()
 int  main()
 {
 	int opcao=0; //Definindo variaveis
-	int laco=1; //Sistema de repetição
+	char senhadigital[10]; // criando variavel
+	int laco=1; //Sistema de repeti??o
+	
+	 printf("### Cartório da EBAC ###\n\n");
+    printf("Digite a sua senha para acessar o software: ");
+    scanf("%s", senhadigital);
+
+    if (strcmp(senhadigital, "12345") == 0) {
+        while (1) {
+            system("cls");
+            setlocale(LC_ALL, "Portuguese");
 	
 	for(laco=1; laco=1;)
 	{
@@ -119,18 +130,18 @@ int  main()
 	
 	   setlocale(LC_ALL, "Portuguese"); //Definindo linguagem
 	
-	   printf("### Cartório da EBAC ###\n\n"); //Inicio do menu
-	   printf("Escolha a opção desejada do menu:\n\n");
+	   printf("### Cart?rio da EBAC ###\n\n"); //Inicio do menu
+	   printf("Escolha a op??o desejada do menu:\n\n");
 	   printf("\t1 - Registrar \n");
 	   printf("\t2 - Consultar \n");
 	   printf("\t3 - Deletar \n"); 
 	   printf("\t4 - Sair do sistema \n\n"); // Fim do menu
 	
-	   scanf("%d", &opcao); //Armazenando a escolha do usuário
+	   scanf("%d", &opcao); //Armazenando a escolha do usu?rio
 	
 	   system("cls");//Responsavel por limpar a tela
 	   
-	   switch(opcao)//Inicio do sistema de opções 
+	   switch(opcao)//Inicio do sistema de op??es 
 	   {
 	   	case 1:
 	   	registro();
@@ -150,11 +161,19 @@ int  main()
 		break;
 			
 	   	default:
-	   	printf("Essa opção não está disponivel!\n");
+	   	printf("Essa op??o n?o est? disponivel!\n");
 	   	system("pause");
 	   	break;
 	   	
-	   }//Fim do sistema de opções
-
-    }
+	           }//Fim do sistema de op??es
+	   
+            }  
+         }
+      }
+	  else {
+      printf("Senha incorreta!\n");
+      }
+      
+      return 0;
+      
 }
